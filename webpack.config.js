@@ -1,7 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugins = require('html-webpack-plugin');
 
-const NODE_ENV = process.env.NODE_ENV
+const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
     resolve: {
@@ -11,7 +11,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'main.js',
     },
     module: {
         rules: [
@@ -20,31 +20,33 @@ module.exports = {
                 use: ['ts-loader'],
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', {
-                    loader: 'css-loader',
-                    options: {
-                        modules: {
-                            mode: 'local',
-                            localIdentName: '[name]__[local]__[hash:base64:5]',
-                            auto: /\.modules\.\w+$/i
-                        }
-                    }
-                },
-                    'sass-loader'],
+                test: /\.(s*)css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                mode: 'local',
+                                localIdentName: '[name]__[local]__[hash:base64:5]',
+                                auto: /\.modules\.\w+$/i,
+                            },
+                        },
+                    },
+                    'sass-loader',
+                ],
             },
-        ]
+        ],
     },
     plugins: [
         new HTMLWebpackPlugins({
-            template: path.resolve(__dirname, 'public/index.html')
-        })
+            template: path.resolve(__dirname, 'public/index.html'),
+        }),
     ],
     devServer: {
         port: 3000,
         open: true,
-        hot: true
+        hot: true,
     },
-    devtool: 'source-map'
-
+    devtool: 'source-map',
 };
