@@ -13,3 +13,9 @@ body {
 body {
     font-family: 'Karla', sans-serif;
 }
+
+html,
+body,
+#root {
+    height: 100vh;
+}

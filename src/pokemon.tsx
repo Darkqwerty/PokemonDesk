@@ -1,4 +1,47 @@
-const pokemons = [
+/* eslint-disable camelcase */
+interface IStat {
+    /** Здоровье */
+    hp: number;
+    /** Атака */
+    attack: number;
+    /** Защита */
+    defense: number;
+    /** Спец атака */
+    'special-attack': number;
+    /** Спец защита */
+    'special-defense': number;
+    /** Скорость */
+    speed: number;
+}
+
+export interface IPokemon {
+    /** Чистое имя */
+    name_clean: string;
+    /** Способности */
+    abilities: string[];
+    /** Стата */
+    stats: IStat;
+    /** Тип перечислить типы */
+    types: string[];
+    /** Картинка */
+    img: string;
+    /** Имя */
+    name: string;
+    /** Базовый опыт */
+    base_experience: number;
+    /** Рост */
+    height: number;
+    /** Идентификатор */
+    id: number;
+    /** Умолчательный? */
+    is_default: boolean;
+    /** Порядок */
+    order: number;
+    /** Вес */
+    weight: number;
+}
+
+const Pokemons: IPokemon[] = [
     {
         name_clean: 'bulbasaur',
         abilities: ['overgrow', 'chlorophyll'],
@@ -211,4 +254,4 @@ const pokemons = [
     },
 ];
 
-export default pokemons;
+export default Pokemons;

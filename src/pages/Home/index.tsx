@@ -16,10 +16,10 @@ export default function HomePage() {
             <Header />
             <Layout className={s.contentWrap}>
                 <div className={s.contentText}>
-                    <Heading tag="h1">
+                    <Heading size="xl">
                         <b>Find</b> all your favorite <b>Pokemon</b>
                     </Heading>
-                    <Heading tag="h3">
+                    <Heading size="m">
                         <span>You can know the type of Pokemon, its strengths, disadvantages and abilities</span>
                     </Heading>
                     <Button onClick={() => navigate(LinkEnum.POKEDEX)}>See pokemon</Button>

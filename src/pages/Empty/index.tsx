@@ -16,7 +16,7 @@ const EmptyPage: React.FC<IEmptyPageProps> = ({ title }) => {
             <Header />
             <Layout className={s.contentWrap}>
                 <div className={s.contentText}>
-                    <Heading tag="h1">
+                    <Heading size="xl">
                         <span>This is empty page for {title}!</span>
                     </Heading>
                 </div>
