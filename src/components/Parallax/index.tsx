@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import s from './Parallax.module.scss';
 
@@ -9,21 +9,54 @@ import CloudBigPng from './assets/Cloud2.png';
 import PikachuPng from './assets/Pikachu.png';
 
 const Parallax = () => {
+    const [screenX, setScreenX] = useState(0);
+    const [screenY, setScreenY] = useState(0);
+
+    useEffect(() => {
+        const mouseMoveHandler = (event: MouseEvent) => {
+            setScreenX(event.screenX);
+            setScreenY(event.screenY);
+        };
+
+        window.addEventListener('mousemove', mouseMoveHandler);
+        return () => window.removeEventListener('mousemove', mouseMoveHandler);
+    }, [screenX, screenY]);
+
     return (
         <div className={s.root}>
-            <div className={s.smallPokeBall}>
+            <div
+                className={s.smallPokeBall}
+                style={{
+                    transform: `translate(${screenY * 0.05}px, ${screenX * 0.05}px)`,
+                }}>
                 <img src={SmallPokeBallPng} alt="Small PokeBall" />
             </div>
-            <div className={s.cloud}>
+            <div
+                className={s.cloud}
+                style={{
+                    transform: `translate(${screenY * 0.1}px, ${screenX * 0.1}px)`,
+                }}>
                 <img src={CloudPng} alt="Cloud PokeBall" />
             </div>
-            <div className={s.cloudBig}>
+            <div
+                className={s.cloudBig}
+                style={{
+                    transform: `translate(${screenY * 0.05}px, ${screenX * 0.05}px)`,
+                }}>
                 <img src={CloudBigPng} alt="Cloud Big PokeBall" />
             </div>
-            <div className={s.pokeBall}>
+            <div
+                className={s.pokeBall}
+                style={{
+                    transform: `translate(${screenY * 0.02}px, ${screenX * 0.02}px)`,
+                }}>
                 <img src={PokeBallPng} alt="Big PokeBall" />
             </div>
-            <div className={s.pikachu}>
+            <div
+                className={s.pikachu}
+                style={{
+                    transform: `translate(${screenY * 0.01}px, ${screenX * 0.01}px)`,
+                }}>
                 <img src={PikachuPng} alt="Cloud PokeBall" />
             </div>
         </div>

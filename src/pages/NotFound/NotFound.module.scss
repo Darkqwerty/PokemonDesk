@@ -1,0 +1,51 @@
+.root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #d93e30;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    & > div,
+    & > button {
+        margin-bottom: 25px;
+    }
+}
+
+.text404 {
+    font-family: Karla;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 700px;
+    line-height: 818px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 4px;
+    z-index: 0;
+
+    color: rgba(0, 0, 0, 0.5);
+
+    position: absolute;
+}
+
+.text {
+    font-family: Karla;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+
+    & > span {
+        color: #f2f2f2;
+    }
+}
