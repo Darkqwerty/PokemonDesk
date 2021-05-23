@@ -22,8 +22,8 @@ const PokedexPage: React.FC = () => {
         <>
             <Layout className={s.root}>
                 <div className={s.contentText}>
-                    <Heading size="l">
-                        {data.totalPokemons} <b>Pokemons</b> for you to choose your favorite
+                    <Heading size="m">
+                        {data.total} <b>Pokemons</b> for you to choose your favorite
                     </Heading>
                 </div>
                 <div className={s.contentGallery}>
