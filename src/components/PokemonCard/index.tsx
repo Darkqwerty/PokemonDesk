@@ -1,5 +1,7 @@
 import React from 'react';
+import cn from 'classnames';
 import { IPokemon } from '../../pokemon';
+import { toCapitalize } from '../../Util';
 import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
@@ -13,7 +15,7 @@ const PokemonCard: React.FC<IPokemonCard> = ({ pokemon }) => {
         <div className={s.root}>
             <div className={s.infoWrap}>
                 <Heading size="xs" className={s.titleName}>
-                    {pokemon.name_clean.charAt(0).toUpperCase() + pokemon.name_clean.slice(1)}
+                    {toCapitalize(pokemon.name_clean)}
                 </Heading>
                 <div className={s.statWrap}>
                     <div className={s.statItem}>
@@ -27,7 +29,9 @@ const PokemonCard: React.FC<IPokemonCard> = ({ pokemon }) => {
                 </div>
                 <div className={s.labelWrap}>
                     {pokemon.types.map((type) => (
-                        <span className={s.label}>{type}</span>
+                        <span key={type} className={cn(s.label, s[type])}>
+                            {type}
+                        </span>
                     ))}
                 </div>
             </div>

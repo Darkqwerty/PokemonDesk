@@ -2,6 +2,7 @@
 // Please do not change this file!
 interface CssExports {
     root: string;
+    teamR: string;
     text: string;
     text404: string;
     wrap: string;
