@@ -1,16 +1,19 @@
 {
-    "name": "PokemonDesk",
+    "name": "pokemondesk",
     "version": "1.0.0",
     "main": "index.tsx",
-    "repository": "https://github.com/Darkqwerty/PokemonDesk.git",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Darkqwerty/PokemonDesk.git"
+    },
     "author": "Darkqwerty <darkqwerty.2.0@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "@types/react": "^17.0.5",
+        "@types/hookrouter": "^2.2.5",
+        "@types/react": "17.0.5",
         "@typescript-eslint/eslint-plugin": "4.6.0",
         "@typescript-eslint/parser": "4.6.0",
         "cross-env": "^7.0.3",
-        "css-loader": "^5.2.4",
         "env": "^0.0.2",
         "eslint": "7.12.1",
         "eslint-config-airbnb": "18.2.0",
@@ -37,9 +40,16 @@
         "webpack-dev-server": "3.11.0"
     },
     "dependencies": {
+        "@svgr/webpack": "^5.5.0",
         "classnames": "^2.3.1",
+        "css-loader": "^5.2.4",
+        "css-modules-typescript-loader": "^4.0.1",
+        "file-loader": "^6.2.0",
+        "hookrouter": "^1.2.5",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "sass": "^1.32.13",
+        "url-loader": "^4.1.1"
     },
     "scripts": {
         "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
@@ -56,5 +66,10 @@
             "pretty-quick --staged",
             "eslint ./src"
         ]
-    }
+    },
+    "description": "",
+    "bugs": {
+        "url": "https://github.com/Darkqwerty/PokemonDesk/issues"
+    },
+    "homepage": "https://github.com/Darkqwerty/PokemonDesk#readme"
 }

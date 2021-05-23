@@ -2,16 +2,13 @@
 
 .root {
     min-height: 100%;
-    height: inherit;
     background: linear-gradient(180deg, $third 0%, $primary 100%);
 }
 
 .contentWrap {
     display: flex;
     flex-direction: row;
-    padding: 20px 0;
 }
-
 .contentText {
     display: flex;
     flex-direction: column;
@@ -20,7 +17,6 @@
         margin-bottom: 15px;
     }
 }
-
 .contentParallax {
     display: flex;
 }
