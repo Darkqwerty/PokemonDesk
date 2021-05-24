@@ -1,29 +1,38 @@
 import React from 'react';
-import Header from '../../components/Header';
 import Heading from '../../components/Heading';
 import Layout from '../../components/Layouts';
 import PokemonCard from '../../components/PokemonCard';
-import Pokemons from '../../pokemon';
 
 import s from './Pokedex.module.scss';
+import { IPokemon } from '../../pokemon';
+import usePokemons from './hooks';
 
-const PokedexPage = () => {
+const PokedexPage: React.FC = () => {
+    const { data, isLoading, isError } = usePokemons();
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (isError) {
+        return <div>Something wrong!</div>;
+    }
+
     return (
-        <div className={s.root}>
-            <Header />
-            <Layout className={s.contentWrap}>
+        <>
+            <Layout className={s.root}>
                 <div className={s.contentText}>
-                    <Heading size="xl">
-                        800 <b>Pokemons</b> for you to choose your favorite
+                    <Heading size="m">
+                        {data.total} <b>Pokemons</b> for you to choose your favorite
                     </Heading>
                 </div>
                 <div className={s.contentGallery}>
-                    {Pokemons.map((item) => (
-                        <PokemonCard pokemon={item} />
+                    {data.pokemons.map((item: IPokemon) => (
+                        <PokemonCard key={item.id} pokemon={item} />
                     ))}
                 </div>
             </Layout>
-        </div>
+        </>
     );
 };
 

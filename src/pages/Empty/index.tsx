@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../components/Header';
 import Heading from '../../components/Heading';
 import Layout from '../../components/Layouts';
 import Parallax from '../../components/Parallax';
@@ -12,9 +11,8 @@ interface IEmptyPageProps {
 
 const EmptyPage: React.FC<IEmptyPageProps> = ({ title }) => {
     return (
-        <div className={s.root}>
-            <Header />
-            <Layout className={s.contentWrap}>
+        <>
+            <Layout className={s.root}>
                 <div className={s.contentText}>
                     <Heading size="xl">
                         <span>This is empty page for {title}!</span>
@@ -24,7 +22,7 @@ const EmptyPage: React.FC<IEmptyPageProps> = ({ title }) => {
                     <Parallax />
                 </div>
             </Layout>
-        </div>
+        </>
     );
 };
 
