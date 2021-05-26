@@ -7,7 +7,7 @@ const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
     const [isError, setIsError] = useState<boolean>(false);
 
     useEffect(() => {
-        const getData = async(): Promise<void> => {
+        const getData = async (): Promise<void> => {
             setIsLoading(true);
             try {
                 const result = await requestAPI<T>(endpoint, query);
@@ -20,6 +20,7 @@ const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
             }
         };
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps);
 
     return {

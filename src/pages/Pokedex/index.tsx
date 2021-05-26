@@ -5,21 +5,23 @@ import PokemonCard from '../../components/PokemonCard';
 
 import s from './Pokedex.module.scss';
 import { IPokemon, IPokemonsData } from '../../Types';
-import useData from './../../hooks/getData';
+// eslint-disable-next-line import/no-unresolved
+import useData from '../../hooks/getData';
 import useDebounce from '../../hooks/useDebounce';
 import Pokemon from '../../components/Pokemon';
+import Popup from '../../components/Popup';
 
 interface IQuery {
+    id?: string | number;
     name?: string;
 }
 
 interface IPokedexProps {
     /** Идентификатор */
-    id?: string | number;
+    id?: string | number | undefined;
 }
 
 const PokedexPage: React.FC<IPokedexProps> = ({ id }) => {
-    const [pokemonData, setPokemonData] = useState({});
     const [searchValue, setSearchValue] = useState('');
     const [query, setQuery] = useState<IQuery>({});
     const debounceValue = useDebounce(searchValue, 500);
@@ -34,27 +36,12 @@ const PokedexPage: React.FC<IPokedexProps> = ({ id }) => {
         }));
     };
 
-    const handleClickCard = (event: React.SyntheticEvent) => {
-        getPokemonById('15');
-    };
-
-    const getPokemonById = (id: string | number) => {
-        const result = data?.pokemons.filter((item) => item.id === id);
-        if (result) {
-            setPokemonData(result);
-        }
-    };
-
     if (isLoading) {
         return <div>Loading...</div>;
     }
 
     if (isError) {
         return <div>Something wrong!</div>;
-    }
-
-    if (id) {
-        getPokemonById(id);
     }
 
     return (
@@ -69,15 +56,12 @@ const PokedexPage: React.FC<IPokedexProps> = ({ id }) => {
                     <input type="text" value={searchValue} onChange={handleSearchChange} />
                 </div>
                 <div className={s.contentGallery}>
-                    {!isLoading &&
-                        data?.pokemons.map((item: IPokemon) => (
-                            <PokemonCard key={item.id} pokemon={item} onClick={handleClickCard} />
-                        ))}
+                    {!isLoading && data?.pokemons.map((item: IPokemon) => <PokemonCard key={item.id} pokemon={item} />)}
                 </div>
             </Layout>
-            <div className={s.popup}>
-                <Pokemon key={id} pokemon={pokemonData} />
-            </div>
+            <Popup show={!!id}>
+                <Pokemon key={id} id={id} />
+            </Popup>
         </>
     );
 };

@@ -81,7 +81,6 @@
 }
 
 .label {
-    background: #f28f16;
     box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
     border-radius: 11px;
     height: 15px;
@@ -102,36 +101,46 @@
         margin-right: 0;
     }
 
-    .stile, .dark, .rock {
-        background: #A1A1A1;
+    &.stile,
+    &.dark,
+    &.rock {
+        background: #a1a1a1;
     }
 
-    .grass, .bug {
-        background: #70A83B;
+    &.grass,
+    &.bug {
+        background: #70a83b;
     }
 
-    .ice, .water {
-        background: #A2CFF0;
+    &.ice,
+    &.water {
+        background: #a2cff0;
     }
 
-    .fire, .fighting, .dragon {
-        background: #F76545;
+    &.fire,
+    &.fighting,
+    &.dragon {
+        background: #f76545;
     }
 
-    .normal, .gosth {
-        background: #76AADB;
+    &.normal,
+    &.gosth {
+        background: #76aadb;
     }
 
-    .poison, .psychic, .fairy, .ghost {
-        background: #A974BC;
+    &.poison,
+    &.psychic,
+    &.fairy,
+    &.ghost {
+        background: #a974bc;
     }
 
-    .ground {
-        background: #9B897B;
+    &.ground {
+        background: #9b897b;
     }
 
-    .electric {
-        background: #F7C545;
+    &.electric {
+        background: #f7c545;
     }
 }
 

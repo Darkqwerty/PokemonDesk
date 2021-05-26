@@ -1,0 +1,69 @@
+.root {
+    height: 371px;
+    width: 796.7293701171875px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(180deg, #732119 42.19%, #d93e30 100%);
+    border-radius: 16px;
+}
+
+.img {
+    height: 370.9999694824232px;
+    width: 364.34994506836085px;
+    background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
+    box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+    border-radius: 8px 0px 0px 8px;
+    display: flex;
+
+    & > img {
+        width: 100%;
+    }
+
+    .labelWrap {
+        position: absolute;
+        display: flex;
+        align-self: flex-end;
+        margin: 8px;
+    }
+}
+
+.info {
+    padding: 20px;
+}
+
+.name {
+    font-family: Karla;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    color: #fdfdfd;
+    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+}
+
+.abilities {
+    background: #fdfdfd;
+    box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.caption {
+    font-family: Karla;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+.stats .statWrap {
+    display: flex;
+    flex-direction: row;
+}
