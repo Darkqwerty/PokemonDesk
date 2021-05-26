@@ -101,6 +101,38 @@
     &:last-child {
         margin-right: 0;
     }
+
+    .stile, .dark, .rock {
+        background: #A1A1A1;
+    }
+
+    .grass, .bug {
+        background: #70A83B;
+    }
+
+    .ice, .water {
+        background: #A2CFF0;
+    }
+
+    .fire, .fighting, .dragon {
+        background: #F76545;
+    }
+
+    .normal, .gosth {
+        background: #76AADB;
+    }
+
+    .poison, .psychic, .fairy, .ghost {
+        background: #A974BC;
+    }
+
+    .ground {
+        background: #9B897B;
+    }
+
+    .electric {
+        background: #F7C545;
+    }
 }
 
 .labelWrap {

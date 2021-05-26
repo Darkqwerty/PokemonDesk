@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { IPokemon } from '../../pokemon';
+import { IPokemon } from '../../Types';
 import { toCapitalize } from '../../Util';
 import Heading from '../Heading';
 
@@ -8,11 +8,12 @@ import s from './PokemonCard.module.scss';
 
 interface IPokemonCard {
     pokemon: IPokemon;
+    onClick: (event: React.SyntheticEvent) => void;
 }
 
-const PokemonCard: React.FC<IPokemonCard> = ({ pokemon }) => {
+const PokemonCard: React.FC<IPokemonCard> = ({ pokemon, onClick }) => {
     return (
-        <div className={s.root}>
+        <div className={s.root} onClick={onClick}>
             <div className={s.infoWrap}>
                 <Heading size="xs" className={s.titleName}>
                     {toCapitalize(pokemon.name_clean)}

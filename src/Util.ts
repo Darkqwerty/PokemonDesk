@@ -13,7 +13,7 @@ export function getUrlWithParamsConfig(endpointConfig: string, options = {}): ob
     };
 }
 
-export async function requestAPI(endpoint: string, options = {}): Promise<{}> {
+export async function requestAPI<T>(endpoint: string, options = {}): Promise<T> {
     const uri = Url.format(getUrlWithParamsConfig(endpoint, options));
     const result = await fetch(uri).then((res) => res.json());
 
