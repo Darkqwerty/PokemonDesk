@@ -1,10 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
-import { IPokemon } from '../../pokemon';
+import { navigate } from 'hookrouter';
+import { IPokemon } from '../../Types';
 import { toCapitalize } from '../../Util';
 import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
+import { LinkEnum } from '../../routes';
 
 interface IPokemonCard {
     pokemon: IPokemon;
@@ -12,7 +14,12 @@ interface IPokemonCard {
 
 const PokemonCard: React.FC<IPokemonCard> = ({ pokemon }) => {
     return (
-        <div className={s.root}>
+        <div
+            className={s.root}
+            role="button"
+            onClick={() => navigate(`${LinkEnum.POKEDEX}/${pokemon.id}`)}
+            onKeyPress={() => {}}
+            tabIndex="0">
             <div className={s.infoWrap}>
                 <Heading size="xs" className={s.titleName}>
                     {toCapitalize(pokemon.name_clean)}
@@ -29,7 +36,7 @@ const PokemonCard: React.FC<IPokemonCard> = ({ pokemon }) => {
                 </div>
                 <div className={s.labelWrap}>
                     {pokemon.types.map((type) => (
-                        <span key={type} className={cn(s.label, s[type])}>
+                        <span key={type} className={cn(s[type], s.label)}>
                             {type}
                         </span>
                     ))}

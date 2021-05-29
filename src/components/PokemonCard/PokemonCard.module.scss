@@ -81,7 +81,6 @@
 }
 
 .label {
-    background: #f28f16;
     box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
     border-radius: 11px;
     height: 15px;
@@ -100,6 +99,48 @@
 
     &:last-child {
         margin-right: 0;
+    }
+
+    &.stile,
+    &.dark,
+    &.rock {
+        background: #a1a1a1;
+    }
+
+    &.grass,
+    &.bug {
+        background: #70a83b;
+    }
+
+    &.ice,
+    &.water {
+        background: #a2cff0;
+    }
+
+    &.fire,
+    &.fighting,
+    &.dragon {
+        background: #f76545;
+    }
+
+    &.normal,
+    &.gosth {
+        background: #76aadb;
+    }
+
+    &.poison,
+    &.psychic,
+    &.fairy,
+    &.ghost {
+        background: #a974bc;
+    }
+
+    &.ground {
+        background: #9b897b;
+    }
+
+    &.electric {
+        background: #f7c545;
     }
 }
 
