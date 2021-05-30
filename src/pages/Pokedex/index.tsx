@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { navigate } from 'hookrouter';
 import Heading from '../../components/Heading';
 import Layout from '../../components/Layouts';
 import PokemonCard from '../../components/PokemonCard';
@@ -10,6 +11,7 @@ import useData from '../../hooks/getData';
 import useDebounce from '../../hooks/useDebounce';
 import Pokemon from '../../components/Pokemon';
 import Popup from '../../components/Popup';
+import { LinkEnum } from '../../routes';
 
 interface IQuery {
     id?: string | number;
@@ -56,7 +58,14 @@ const PokedexPage: React.FC<IPokedexProps> = ({ id }) => {
                     <input type="text" value={searchValue} onChange={handleSearchChange} />
                 </div>
                 <div className={s.contentGallery}>
-                    {!isLoading && data?.pokemons.map((item: IPokemon) => <PokemonCard key={item.id} pokemon={item} />)}
+                    {!isLoading &&
+                        data?.pokemons.map((item: IPokemon) => (
+                            <PokemonCard
+                                key={item.id}
+                                pokemon={item}
+                                onClick={() => navigate(`${LinkEnum.POKEDEX}/${item.id}`)}
+                            />
+                        ))}
                 </div>
             </Layout>
             <Popup show={!!id}>
