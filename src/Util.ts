@@ -1,6 +1,6 @@
-export function toCapitalize(str: string | undefined): string {
+export function toCapitalizeFirstLetter(str: string | undefined): string {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-export default toCapitalize;
+export default toCapitalizeFirstLetter;

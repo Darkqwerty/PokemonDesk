@@ -28,7 +28,6 @@ describe('Heading', () => {
         });
 
         expect(container?.innerHTML).toBeDefined();
-        expect(container?.innerHTML).toEqual('<h1 class="xl"></h1>');
     });
 
     it('render with children', () => {
