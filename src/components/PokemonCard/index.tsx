@@ -1,28 +1,22 @@
 import React from 'react';
 import cn from 'classnames';
-import { navigate } from 'hookrouter';
 import { IPokemon } from '../../Types';
-import { toCapitalize } from '../../Util';
+import { toCapitalizeFirstLetter } from '../../Util';
 import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
-import { LinkEnum } from '../../routes';
 
 interface IPokemonCard {
     pokemon: IPokemon;
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const PokemonCard: React.FC<IPokemonCard> = ({ pokemon }) => {
+const PokemonCard: React.FC<IPokemonCard> = ({ pokemon, onClick }) => {
     return (
-        <div
-            className={s.root}
-            role="button"
-            onClick={() => navigate(`${LinkEnum.POKEDEX}/${pokemon.id}`)}
-            onKeyPress={() => {}}
-            tabIndex="0">
+        <div className={s.root}>
             <div className={s.infoWrap}>
                 <Heading size="xs" className={s.titleName}>
-                    {toCapitalize(pokemon.name_clean)}
+                    {toCapitalizeFirstLetter(pokemon.name_clean)}
                 </Heading>
                 <div className={s.statWrap}>
                     <div className={s.statItem}>

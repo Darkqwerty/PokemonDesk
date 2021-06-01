@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import useData from '../../hooks/getData';
 import { IPokemonsData } from '../../Types';
-import toCapitalize from '../../Util';
+import toCapitalizeFirstLetter from '../../Util';
 
 import s from './Pokemon.module.scss';
 import spc from '../PokemonCard/PokemonCard.module.scss';
@@ -37,7 +37,7 @@ const Pokemon: React.FC<IPokemonProps> = ({ id }) => {
                 </div>
             </div>
             <div className={s.info}>
-                <div className={s.name}>{toCapitalize(pokemon?.name_clean)}</div>
+                <div className={s.name}>{toCapitalizeFirstLetter(pokemon?.name_clean)}</div>
                 <div className={s.abilities}>
                     <div className={s.caption}>Abilities</div>
                     {pokemon?.abilities}
