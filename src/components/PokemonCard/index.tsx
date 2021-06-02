@@ -30,7 +30,8 @@ const PokemonCard: React.FC<IPokemonCard> = ({ pokemon, onClick }) => {
                 </div>
                 <div className={s.labelWrap}>
                     {pokemon.types.map((type) => (
-                        <span key={type} className={cn(s[type], s.label)}>
+                        <span key={type} className={cn(type, s.label)}>
+                            {/* <span key={type} className={cn(s[type], s.label)}> */}
                             {type}
                         </span>
                     ))}

@@ -1,2 +1,4 @@
 *.css
 webpack.config.js
+webpack.clent.config.js
+webpack.server.config.js
