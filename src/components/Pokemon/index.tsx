@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import useData from '../../hooks/getData';
-import { IPokemonsData } from '../../Types';
+import { IPokemon } from '../../Types';
 import toCapitalizeFirstLetter from '../../Util';
 
 import s from './Pokemon.module.scss';
@@ -13,8 +13,8 @@ export interface IPokemonProps {
 }
 
 const Pokemon: React.FC<IPokemonProps> = ({ id }) => {
-    const { data, isLoading, isError } = useData<IPokemonsData>('getPokemon', { id }, []);
-    const pokemon = data?.pokemons[0];
+    const { data, isLoading, isError } = useData<IPokemon>('getPokemon', { id }, []);
+    const pokemon = data;
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -30,7 +30,8 @@ const Pokemon: React.FC<IPokemonProps> = ({ id }) => {
                 <img src={pokemon?.img} alt={pokemon?.name} />
                 <div className={cn(spc.labelWrap, s.labelWrap)}>
                     {pokemon?.types.map((type) => (
-                        <span key={type} className={cn(spc[type], spc.label)}>
+                        <span key={type} className={cn(spc.label)}>
+                            {/* <span key={type} className={cn(spc[type], spc.label)}> */}
                             {type}
                         </span>
                     ))}
