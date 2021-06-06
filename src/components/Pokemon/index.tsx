@@ -16,6 +16,10 @@ const Pokemon: React.FC<IPokemonProps> = ({ id }) => {
     const { data, isLoading, isError } = useData<IPokemon>('getPokemon', { id }, []);
     const pokemon = data;
 
+    if (!id) {
+        return <div />;
+    }
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
