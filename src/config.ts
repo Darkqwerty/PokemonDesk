@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 export const config = {
     client: {
         server: {
@@ -17,8 +18,20 @@ export const config = {
                     pathname: '/api/v1/pokemon/{id}',
                 },
             },
+            getPokemonTypes: {
+                method: 'GET',
+                uri: {
+                    pathname: '/api/v1/types',
+                },
+            },
         },
     },
 };
+
+export enum configEndpoint {
+    getPokemons = 'getPokemons',
+    getPokemon = 'getPokemon',
+    getPokemonTypes = 'getPokemonTypes',
+}
 
 export default config;
